@@ -1,11 +1,15 @@
 import cv2
+import os
 import sys
 import mediapipe as mp
 #import sounddevice as sd
-#import numpy as np 
+#import numpy as np
 import simpleaudio as sa
 import soundfile as sf
 import time
+SOUNDS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sounds")
+def sound(note):
+    return os.path.join(SOUNDS_DIR, f"{note}.wav")
 mp_drawing = mp.solutions.drawing_utils
 mp_hands = mp.solutions.hands
 cap = cv2.VideoCapture(0) #should be everywhere, its
@@ -21,11 +25,11 @@ count=0
 def check(note):
     global path
     global playobj
-    if path!=(f"{note}.wav"):
+    if path!=sound(note):
         if not isinstance(playobj, str) and playobj.is_playing():
             playobj.stop() #stop
           #  time.sleep(0.25)
-    path=f"{note}.wav"
+    path=sound(note)
     wave_obj = sa.WaveObject.from_wave_file(path)
     playobj = wave_obj.play()
 def ot():
@@ -72,20 +76,20 @@ while True:
         if pressed==[1,2]:
             cv2.putText(image, "a", (150, 150), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 4, cv2.LINE_AA) #a
             if path!="":
-                if path!="a.wav":
+                if path!=sound("a"):
                     if not isinstance(playobj, str) and playobj.is_playing():
                         playobj.stop()
                      #   time.sleep(0.25)
-            path="a.wav"
+            path=sound("a")
             wave_obj = sa.WaveObject.from_wave_file(path)
             playobj = wave_obj.play()
         if pressed==[2]:
             cv2.putText(image, "c", (150, 150), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 4, cv2.LINE_AA)
-            if path!="c.wav":
+            if path!=sound("c"):
                         if not isinstance(playobj, str) and playobj.is_playing():
                             playobj.stop() #stop
                            # time.sleep(0.25)
-            path="c.wav"
+            path=sound("c")
             wave_obj = sa.WaveObject.from_wave_file(path)
             playobj = wave_obj.play()
         if pressed==[1,2,3]:
@@ -118,11 +122,11 @@ while True:
         if pressed==[2,9]:
             cv2.putText(image, "c", (150, 150), cv2.FONT_HERSHEY_SIMPLEX, 3, (0, 255, 0), 4, cv2.LINE_AA)
             ot()
-            if path!=" highc.wav":
+            if path!=sound("highc"):
                         if not isinstance(playobj, str):
                             playobj.stop() #stop
                             time.sleep(0.25)
-            path="highc.wav"
+            path=sound("highc")
             wave_obj = sa.WaveObject.from_wave_file(path)
             playobj = wave_obj.play()
         if pressed==[1,2,3,9]:
