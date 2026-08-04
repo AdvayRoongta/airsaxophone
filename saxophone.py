@@ -5,7 +5,6 @@ import mediapipe as mp
 #import sounddevice as sd
 #import numpy as np
 import simpleaudio as sa
-import soundfile as sf
 import time
 SOUNDS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sounds")
 def sound(note):
