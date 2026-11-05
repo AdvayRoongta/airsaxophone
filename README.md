@@ -8,8 +8,8 @@ Demo: [YouTube](https://www.youtube.com/watch?v=hacINoEem5s)
 
 ## Features
 
-- Covers 16 notes from low D to high C, including F# and Gb
-- Left-hand thumb acts as the octave key, same as on a real saxophone
+- Covers 16 notes from low D to high C, including F# and Gb which I recorded myself
+- Left-hand thumb acts as the octave key, same as on a real tenor saxophone
 - Fingering patterns match actual tenor sax fingerings, so it's learnable if you already play
 - Built entirely in Python using OpenCV and Mediapipe — no hardware needed
 
